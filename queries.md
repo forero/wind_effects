@@ -31,9 +31,9 @@ SELECT
     MIN(at_zenith) as at_zenith,
     MIN(at_whitespot) as at_whitespot
 FROM tcs_info
+WHERE row_status_time BETWEEN '2021-01-31' AND '2024-10-23'  -- Adjust dates as needed
 GROUP BY 
     row_status_time::timestamp::date,
     EXTRACT(HOUR FROM row_status_time::timestamp),
     EXTRACT(MINUTE FROM row_status_time::timestamp)
-ORDER BY minute_timestamp DESC
-
+ORDER BY minute_timestamp DESC;
